@@ -1,5 +1,5 @@
 # svelte-modular
-Svelte/Sapper experiments with modular project structure
+Svelte/Sapper experiments with modular project structure. It's basically restructuralized Sapper's starter-template.
 
 ## Model A
 Modules are connected using Express to the master Sapper app.
@@ -14,7 +14,7 @@ Modules are connected using Express to the master Sapper app.
 - [x] SSR prefetch
 - [x] Sapper inner routing
 
-### TODO
+#### TODO
 - Include module `css` and `js` in `rollup`
 
 ## Model B
