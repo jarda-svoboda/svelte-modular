@@ -11,9 +11,11 @@ Modules are connected using Express to the master Sapper app.
 
 #### Modules
 - [x] Standalone
-- [x] SSR
+- [x] SSR prefetch
 - [x] Sapper inner routing
 
+### TODO
+- Include module `css` and `js` in `rollup`
 
 ## Model B
 Modules imported as a regular components to `[...slug].svelte` Sapper route where they are switched respectively.
@@ -25,5 +27,5 @@ Modules imported as a regular components to `[...slug].svelte` Sapper route wher
 
 #### Modules
 - [x] Standalone
-- [ ] SSR (hacky)
-- [ ] Sapper inner routing (Possible with custom router /csr only/)
+- [ ] SSR prefetch (bit hacky)
+- [ ] Sapper inner routing (Possible with custom router /csr only/?)
