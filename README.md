@@ -18,7 +18,7 @@ Modules are connected using Express to the master Sapper app.
 - Include module `css` and `js` in `rollup`
 
 ## Model B
-Modules imported as a regular components to `[...slug].svelte` Sapper route where they are switched respectively.
+Modules imported as common components to `[...slug].svelte` Sapper route where they are switched respectively.
 
 #### Master app
 - [x] SSR
