@@ -11,7 +11,7 @@ Modules are connected using Express to the master Sapper app.
 
 #### Modules
 - [x] Standalone
-- [x] SSR prefetch
+- [x] Server-side prefetch
 - [x] Sapper inner routing
 
 #### TODO
@@ -27,5 +27,5 @@ Modules imported as common components to `[...slug].svelte` Sapper route where t
 
 #### Modules
 - [x] Standalone
-- [ ] SSR prefetch (bit hacky)
-- [ ] Sapper inner routing (Possible with custom router /csr only/?)
+- [ ] Server-side prefetch (bit hacky)
+- [ ] Sapper inner routing (Possible with custom router)
