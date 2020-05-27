@@ -7,9 +7,10 @@ Modules are connected using Express to the master Sapper app.
 #### Master app
 - [x] SSR
 - [x] Custom pages with routing (not only imported modules)
-- [ ] Shared layout
+- [ ] Shared layout (maybe somehow wrap the Express app response would work...)
 
 #### Modules
+- [x] Standalone
 - [x] SSR
 - [x] Sapper inner routing
 
@@ -23,5 +24,6 @@ Modules imported as a regular components to `[...slug].svelte` Sapper route wher
 - [x] Shared layout
 
 #### Modules
+- [x] Standalone
 - [ ] SSR (hacky)
 - [ ] Sapper inner routing (Possible with custom router /csr only/)
