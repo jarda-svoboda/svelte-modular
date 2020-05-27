@@ -1,24 +1,35 @@
 <script context="module">
-  import About from '../../../module-simple/src/routes/index.svelte';
-  import Blog, {preload as BlogPreload} from '../../../module-advanced/src/routes/index.svelte';
+  import config from '../modules';
+
+  const filterPath = (route = '', path = '') => {
+    const data = route.split('/');
+    const slug = path.split('/');
+    return route === path || (
+      data.length === slug.length && !data.filter((s, i) => !(s === slug[i] || (slug[i] && s === '*'))).length
+    );
+  }
 
   export async function preload(page, session) {
-    const { params } = page;
-    const { slug } = params;
-    let component = About;
-    let props = {};
-    if(slug[0] === 'blog') {
-      props = await BlogPreload(page);
-      component = Blog;
+    let component, modulePreload, props = {};
+    console.log(page);
+    const { path } = page;
+    try {
+      const name = Object.keys(config).find((route) => filterPath(route, path));
+      component = config[name].component;
+      modulePreload = config[name].preload;
+    } catch (error) {
+      this.error(404, error.message);
     }
-    return { slug, component: {component, props} };
+    if(modulePreload) {
+      props = await modulePreload(page, session); 
+    }
+    return { component, props };
   }
 </script>
 
 <script>
   export let component;
-  export let slug = [];
-  $: console.log(slug);
+  export let props;
 </script>
 
-<svelte:component this={component.component} {...component.props} />
+<svelte:component this={component} {...props} />

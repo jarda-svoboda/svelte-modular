@@ -27,5 +27,5 @@ Modules imported as common components to `[...slug].svelte` Sapper route where t
 
 #### Modules
 - [x] Standalone
-- [ ] SSR prefetch (bit hacky)
-- [ ] Sapper inner routing (Possible with custom router /csr only/?)
+- [x] SSR prefetch (bit hacky)
+- [ ] Sapper inner routing (possible, but with custom router only)

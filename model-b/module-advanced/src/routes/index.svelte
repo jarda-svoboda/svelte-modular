@@ -2,7 +2,7 @@
 	import axios from 'axios';
 	export async function preload({ params, query }) {
 		const { data = [] } = await axios.get(`http://localhost:3002/blog.json`);
-		console.log('DATA',data);
+		console.log('COMPONENT PRELOAD');
 		return {posts: data}
 	}
 </script>
