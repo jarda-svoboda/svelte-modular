@@ -1,14 +1,15 @@
 <script context="module">
 	import axios from 'axios';
-	export async function preload({ params, query }) {
-		const { data = [] } = await axios.get(`http://localhost:3002/blog.json`);
+	export async function preload({ path, query }) {
+		const { data = [] } = await axios.get(`http://localhost:3002/data.json`);
 		console.log('COMPONENT PRELOAD');
-		return {posts: data}
+		return {posts: data, path}
 	}
 </script>
 
 <script>
 	export let posts = [];
+	export let path = '';
 </script>
 
 <style>
@@ -30,6 +31,6 @@
 				tell Sapper to load the data for the page as soon as
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
-		<li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li>
+		<li><a rel='prefetch' href={`${path === '/' ? '' : path}/${post.slug}`}>{post.title}</a></li>
 	{/each}
 </ul>

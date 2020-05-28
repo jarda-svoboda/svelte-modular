@@ -1,12 +1,12 @@
 <script context="module">
 	import axios from 'axios';
 
-	export async function preload({ path, query }) {
+	export async function preload({ params, query }) {
 		// the `slug` parameter is available because
 		// this file is called [slug].svelte
-		console.log(path);
-		const {status, data} = await axios.get(`http://localhost:3002${path}.json`);
-	console.log(data);
+		const { slug } = params;
+		const [name] = Array.isArray(slug) ? slug.slice(-1) : [slug];
+		const {status, data} = await axios.get(`http://localhost:3002/${name}.json`);
 		if (status === 200) {
 			return { post: data };
 		} else {
