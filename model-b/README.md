@@ -1,4 +1,4 @@
-# Model B.
+# Model B
 Install dependencies using this in every module including the `master-project`:
 
 ```
