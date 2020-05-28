@@ -28,4 +28,4 @@ Modules imported as common components to `[...slug].svelte` Sapper route where t
 #### Modules
 - [x] Standalone
 - [x] Server-side prefetch (bit hacky)
-- [ ] Built-in Sapper inner routing (Possible with custom router)
+- [x] Built-in Sapper inner routing (Routing can be done with custom router)
