@@ -1,5 +1,13 @@
 <script>
+	import modules from '../modules.js';
 	export let segment;
+	
+	const nav = Object.keys(modules).filter(
+		path => modules[path].title
+	).map(
+		path => ({ title: modules[path].title, path, segment: path.replace('/', '')})
+	);
+
 </script>
 
 <style>
@@ -50,11 +58,8 @@
 
 <nav>
 	<ul>
-		<li><a aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a></li>
-		<li><a aria-current='{segment === "about" ? "page" : undefined}' href='about'>about</a></li>
-
-		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch aria-current='{segment === "blog" ? "page" : undefined}' href='blog'>blog</a></li>
+	{#each [{title: 'Home', path: '/'}, ...nav] as {title, segment: s, path}}
+		<li><a aria-current='{segment === s ? "page" : undefined}' href={path}>{title}</a></li>
+	{/each}
 	</ul>
 </nav>
