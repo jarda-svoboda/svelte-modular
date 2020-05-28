@@ -7,12 +7,13 @@ Modules are connected using Express to the master Sapper app.
 #### Master app
 - [x] SSR
 - [x] Custom pages with routing (not only imported modules)
-- [ ] Shared layout (maybe somehow wrap the Express app response would work...)
+- [ ] Shared layout
 
 #### Modules
 - [x] Standalone
 - [x] Server-side prefetch
 - [x] Built-in Sapper inner routing
+- [ ] Svelte (w/o Sapper) modules support
 
 #### TODO
 - Include module `css` and `js` in `rollup`
@@ -28,4 +29,5 @@ Modules imported as common components to `[...slug].svelte` Sapper route where t
 #### Modules
 - [x] Standalone
 - [x] Server-side prefetch (bit hacky)
-- [ ] Built-in Sapper inner routing (Possible with custom router)
+- [x] Built-in Sapper inner routing (Routing can be done with custom router)
+- [x] Svelte (w/o Sapper) modules support
