@@ -7,7 +7,7 @@ Modules are connected using Express to the master Sapper app.
 #### Master app
 - [x] SSR
 - [x] Custom pages with routing (not only imported modules)
-- [ ] Shared layout (maybe somehow wrap the Express app response would work...)
+- [ ] Shared layout
 
 #### Modules
 - [x] Standalone
