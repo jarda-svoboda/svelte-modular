@@ -8,6 +8,6 @@ const filterPath = (route = '', path = '') => {
   );
 }
 
-const getComponentName = (path) => Object.keys(config).find((route) => filterPath(route, path));
+const getRecord = (path) => Object.keys(config).find((route) => filterPath(route, path));
 
-export const getComponent = (path) => config[getComponentName(path)];
+export const getConfig = (path) => config[getRecord(path)];

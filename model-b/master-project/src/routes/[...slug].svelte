@@ -1,11 +1,11 @@
 <script context="module">
-  import { getComponent } from '../utils/common.utils';
+  import { getConfig } from '../utils/common.utils';
   export async function preload(page, session) {
     console.log(page);
     try {
       let props = {};
       const { path } = page;
-      const { component, componentPreload } = getComponent(path);
+      const { component, componentPreload } = getConfig(path);
       if (componentPreload) {
         props = await componentPreload(page, session); 
       }

@@ -1,20 +1,22 @@
 <script context="module">
-  import { getComponent } from '../utils/common.utils';
+  import { getConfig } from '../utils/common.utils';
   export async function preload(page, session) {
     console.log(page);
     try {
       let props = {};
       const { path } = page;
-      const { moduleId, name = 'index' } = getComponent(path);
+      const { moduleId, name = 'index' } = getConfig(path);
       const moduleUrl = process.browser
 			? `/${moduleId}/${name}.client.js`
       : `${process.cwd()}/../dist/${moduleId}/${name}.server.js`;
-      const component = (await import(moduleUrl)).default;
-      if (component.preload) {
-        props = await component.preload(page, session); 
+      const {default: component, preload: componentPreload} = await import(moduleUrl);
+      if (componentPreload) {
+        props = await componentPreload(page, session, this);
+        console.log('PRELOAD', props);
       }
       return { component, props };
     } catch (error) {
+      console.log(error)
       this.error(404, error.message);
     }
   }
