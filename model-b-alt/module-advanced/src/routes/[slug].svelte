@@ -4,8 +4,9 @@
 		// this file is called [slug].svelte
 		const { slug } = params;
 		const [name] = Array.isArray(slug) ? slug.slice(-1) : [slug];
-		const {status, data} = await _this.fetch(`http://localhost:3002/${name}.json`);
-		if (status === 200) {
+		const res = await _this.fetch(`http://localhost:3002/${name}.json`);
+		const data = await res.json();
+		if (res.status === 200) {
 			return { post: data };
 		} else {
 			this.error(res.status, data.message);

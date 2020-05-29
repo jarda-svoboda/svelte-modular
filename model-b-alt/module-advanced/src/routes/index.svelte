@@ -1,6 +1,7 @@
 <script context="module">
 	export async function preload({ path, query }, session, _this) {
-		const { data = [] } = await _this.fetch(`http://localhost:3002/data.json`);
+		const res = await _this.fetch(`http://localhost:3002/data.json`);
+		const data = await res.json();
 		console.log('COMPONENT PRELOAD', data);
 		return {posts: data, path}
 	}
